@@ -346,3 +346,6 @@ CMakeCache.txt
 *.cmake
 *.a
 CMakeFiles
+
+# Make
+Makefile
