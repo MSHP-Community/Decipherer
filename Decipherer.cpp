@@ -13,7 +13,7 @@ istream& operator>>(istream& in, vector<Hamming>& tmp) // inputs text with the H
 	string str;
 	getline(in, str);
 
-	str.erase(remove_if(str.begin(), str.end(), not1(ptr_fun(isdigit))), str.end());
+	str.erase(remove_if(str.begin(), str.end(), not1(ptr_fun(isdigit))), str.end()); // deletes all non-digit symbols
 
 	int n;
 	n = str.size() / 15;
@@ -37,7 +37,7 @@ istream& operator>>(istream& in, vector<Hamming>& tmp) // inputs text with the H
 		char s[16] = {};
 		for (int j = 0; j < 15; ++j, ++i)
 		{
-			if (i < str.size())
+			if (i < (int)str.size())
 			{
 				s[j] = str[n * 15 + j];
 			}

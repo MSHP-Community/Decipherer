@@ -74,7 +74,7 @@ int Hamming::check() // method that find error using first_check(), second_check
 	else
 		s[0] = '0';
 
-	return to_int_fix(s); // returns the position where the loss occurred
+	return to_int(s); // returns the position where the loss occurred
 }
 
 int Hamming::first_check() // checking for the first defender bit, return 1 or 0
@@ -132,27 +132,15 @@ int Hamming::fourth_check() // checking for the third defender bit, return 1 or 
 	return (count % 2 == 0 ? 0 : 1);
 }
 
-int Hamming::to_int_fix(char s[5]) const  // convert from Base-2 to Base-10 for char with 4 symbols (use for recovery of losses)
+template <typename T>
+int Hamming::to_int(T* s) const  // convert from Base-2 to Base-10 for char with 4 symbols (use for recovery of losses)
 {
+	std::string str(s);
 	int count = 0, n = 1;
 
-	for (int i = 3; i >= 0; --i)
+	for (int i = str.size() - 1; i >= 0; --i)
 	{
-		if (s[i] == '1')
-			count += n;
-		n *= 2;
-	}
-
-	return count;
-}
-
-int Hamming::to_int_clean(char s[12]) const // convert from Base-2 to Base-10 for char with 11 symbols (use for translating a clean recovery package)
-{
-	int count = 0, n = 1;
-
-	for (int i = 10; i >= 0; --i)
-	{
-		if (s[i] == '1')
+		if (str[i] == '1')
 			count += n;
 		n *= 2;
 	}
@@ -204,7 +192,7 @@ void Hamming::delete_excess(Binary section) // method that delete protecting bit
 	}
 	std::string str(s);
 	this->finalCleanString = str; // copy value to attribute as string
-	this->finalCleanInt = to_int_clean(s); // copy value to attribute as int
+	this->finalCleanInt = to_int(s); // copy value to attribute as int
 }
 
 std::istream& operator>>(std::istream& in, Hamming& tmp) // enters value

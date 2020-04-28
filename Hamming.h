@@ -45,8 +45,8 @@ private:
     int finalCleanInt; // a clean restored packet with no security bits in int
     std::string finalCleanString; // a clean restored packet with no security bits in string
 
-    int to_int_fix(char s[5]) const; // convert from Base-2 to Base-10 for char with 4 symbols (used for recovery of losses)
-    int to_int_clean(char s[12]) const; // convert from Base-2 to Base-10 for char with 11 symbols (used for translating a clean recovery package)
+    template <typename T>
+    int to_int(T* s) const; // convert from Base-2 to Base-10 (used for recovery of losses and translating a clean recovery package)
     long long to_bin(long long value) const; // convert from Base-10 to Base-2 (not used)
 
     int first_check(); // checking for the first defender bit, return 1 or 0
@@ -57,6 +57,5 @@ private:
     void clean(); // the main method that calculates the error using the check() method is fixed and defines the package without protection
     int check(); // the method that find error using first_check(), second_check(), third_check(), fourth_check(), return error number in Base-2
     void delete_excess(Binary section); // the method that delete protecting bits
-
 };
 
