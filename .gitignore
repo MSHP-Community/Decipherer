@@ -342,6 +342,7 @@ ASALocalRun/
 healthchecksdb
 
 # CMake
+cmake-build-debug
 CMakeCache.txt
 *.cmake
 *.a

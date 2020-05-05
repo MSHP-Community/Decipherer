@@ -1,6 +1,11 @@
-cmake_minimum_required(VERSION 2.8)
-set(EXEC Decipherer.cpp)
-set(LIB Hamming.cpp Hamming.h)
-add_library(hamming STATIC ${LIB})
-add_executable(run ${EXEC})
-target_link_libraries(run hamming)
+cmake_minimum_required(VERSION 3.16)
+project(Decipherer)
+
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wpedantic")
+
+
+set(headers Hamming.h HammingPacket.h Elias.h)
+set(sources Decipherer.cpp Hamming.cpp HammingPacket.cpp Elias.cpp)
+
+add_executable(Decipherer ${headers} ${sources})
