@@ -1,3 +1,4 @@
+п»ї#pragma once
 #include <iostream>
 #include <cstring>
 
@@ -44,11 +45,11 @@ Hamming::Hamming(std::string txt)
 	this->text = t;
 }
 
-std::string Hamming::get_packet(int index) // Возвращает копию HammingPacket из вектора по индексу
+std::string Hamming::get_packet(int index) // Г‚Г®Г§ГўГ°Г Г№Г ГҐГІ ГЄГ®ГЇГЁГѕ HammingPacket ГЁГ§ ГўГҐГЄГІГ®Г°Г  ГЇГ® ГЁГ­Г¤ГҐГЄГ±Гі
 {
 	HammingPacket h = text.at(index);
 	std::string str = h.clean_in_string();
-	return str; // тоже самое что return HammingPacket(text.at(index))
+	return str; // ГІГ®Г¦ГҐ Г±Г Г¬Г®ГҐ Г·ГІГ® return HammingPacket(text.at(index))
 }
 
 std::string Hamming::get_clear_text()
@@ -60,7 +61,7 @@ std::string Hamming::get_clear_text()
 	return str;
 }
 
-void Hamming::write_detail_information() // добавить разшивровку
+void Hamming::write_detail_information() // Г¤Г®ГЎГ ГўГЁГІГј Г°Г Г§ГёГЁГўГ°Г®ГўГЄГі
 {
 	std::cout << "Total of " << this->text.size() << " elements:" << std::endl;
 	int i = 1;

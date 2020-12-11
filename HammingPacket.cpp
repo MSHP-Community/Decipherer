@@ -1,3 +1,4 @@
+#pragma once
 #include "HammingPacket.h"
 
 #include <iostream>

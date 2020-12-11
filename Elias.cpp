@@ -7,9 +7,9 @@ Elias::Elias()
 
 Elias::Elias(std::string txt)
 {
-	this->text = txt;
-	firstBit = txt[0];
-	clean();
+    this->text = txt;
+    firstBit = txt[0];
+    clean();
 }
 
 void Elias::read()
@@ -101,9 +101,9 @@ void Elias::createFinal()
 
 void Elias::separation()
 {
-	std::string txt = text;
-	txt.erase(0, 1);
-	int count = 0;
+    std::string txt = text;
+    txt.erase(0, 1);
+    int count = 0;
 
     while (txt.size())
     {
@@ -126,7 +126,7 @@ void Elias::separation()
             txt.erase(0, count * 2 + 1);
         }
     }
-    
+
     for (auto it = intermediateStrValue.begin(); it < intermediateStrValue.end(); ++it)
     {
         std::string txt = *it;
